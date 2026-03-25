@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic — Hepatische Lipidose bij Katten</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --bg: #f5f6f8;
+            --white: #ffffff;
+            --surface: #f0f1f5;
+            --border: #dde0e8;
+            --text: #1a1f2e;
+            --text-mid: #3d4455;
+            --text-muted: #7a8094;
+            --blue: #3b58c8;
+            --blue-light: #ebeffe;
+            --blue-mid: #c8d3f7;
+            --green: #168555;
+            --green-light: #e4f7ee;
+            --green-mid: #b0e4cb;
+            --orange: #bf5a00;
+            --orange-light: #fff1e4;
+            --orange-mid: #f7d4ac;
+            --red: #c03030;
+            --red-light: #fde8e8;
+            --red-mid: #f0b8b8;
+            --purple: #6840b8;
+            --purple-light: #f0ebfa;
+            --purple-mid: #cdbdf0;
+            --teal: #0e7080;
+            --teal-light: #e2f5f8;
+            --teal-mid: #a8dce5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .poster {
+            width: 1100px;
+            margin: 2rem auto;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        /* ══ HERO ══ */
+        .hero {
+            background: linear-gradient(135deg, #1e2a5e 0%, #2d3f8f 50%, #3b58c8 100%);
+            color: white;
+            padding: 2.5rem 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero h1 span { color: #8fadff; }
+
+        .hero p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.25rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #8fadff;
+        }
+
+        .hero-stat .label {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.55);
+            margin-top: 0.1rem;
+        }
+
+        /* ══ BODY ══ */
+        .poster-body {
+            padding: 2rem 2.5rem 2.5rem;
+        }
+
+        /* ── Section titles ── */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .section-title:first-child { margin-top: 0; }
+
+        .section-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .section-title h2 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title .line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Two-hit model ── */
+        .two-hit {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .hit-box {
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            text-align: center;
+        }
+
+        .hit-box h4 {
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.3rem;
+        }
+
+        .hit-box p {
+            font-size: 0.72rem;
+            line-height: 1.45;
+        }
+
+        .hit-box.hit1 {
+            background: var(--orange-light);
+            border: 2px solid var(--orange-mid);
+        }
+        .hit-box.hit1 h4 { color: var(--orange); }
+        .hit-box.hit1 p { color: var(--orange); }
+
+        .hit-box.hit2 {
+            background: var(--red-light);
+            border: 2px solid var(--red-mid);
+        }
+        .hit-box.hit2 h4 { color: var(--red); }
+        .hit-box.hit2 p { color: var(--red); }
+
+        .hit-box.result {
+            background: linear-gradient(135deg, #1e2a5e, #3b58c8);
+            border: none;
+            color: white;
+        }
+        .hit-box.result h4 { color: #8fadff; }
+        .hit-box.result p { color: rgba(255,255,255,0.85); }
+
+        .hit-plus, .hit-arrow {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 0 0.6rem;
+        }
+
+        /* ── Flow chart (central mechanism) ── */
+        .mech-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .mech-step {
+            width: 100%;
+            max-width: 460px;
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .mech-step h4 {
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .mech-step p {
+            font-size: 0.68rem;
+            margin-top: 0.15rem;
+        }
+
+        .mech-step.s-blue { background: var(--blue-light); border: 1.5px solid var(--blue-mid); }
+        .mech-step.s-blue h4 { color: var(--blue); }
+        .mech-step.s-blue p { color: #5068a8; }
+
+        .mech-step.s-orange { background: var(--orange-light); border: 1.5px solid var(--orange-mid); }
+        .mech-step.s-orange h4 { color: var(--orange); }
+        .mech-step.s-orange p { color: #9a6030; }
+
+        .mech-step.s-red { background: var(--red-light); border: 1.5px solid var(--red-mid); }
+        .mech-step.s-red h4 { color: var(--red); }
+        .mech-step.s-red p { color: #983838; }
+
+        .mech-step.s-purple { background: var(--purple-light); border: 1.5px solid var(--purple-mid); }
+        .mech-step.s-purple h4 { color: var(--purple); }
+        .mech-step.s-purple p { color: #6850a0; }
+
+        .mech-arrow {
+            width: 2px;
+            height: 18px;
+            background: var(--border);
+            position: relative;
+        }
+
+        .mech-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: -3px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid var(--border);
+        }
+
+        .mech-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 460px;
+        }
+
+        .mech-split .mech-step { max-width: none; }
+
+        .mech-arrow-split {
+            display: flex;
+            justify-content: center;
+            gap: 180px;
+        }
+
+        /* ── Obligaat carnivoor kaarten ── */
+        .carni-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.65rem;
+        }
+
+        .carni-card {
+            border-radius: 10px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .carni-card .carni-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .carni-card h4 {
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .carni-card p {
+            font-size: 0.65rem;
+            line-height: 1.45;
+        }
+
+        .cc-red { background: var(--red-light); border: 1px solid var(--red-mid); }
+        .cc-red h4 { color: var(--red); }
+        .cc-red p { color: #984040; }
+        .cc-red .carni-icon { background: var(--red-mid); }
+
+        .cc-orange { background: var(--orange-light); border: 1px solid var(--orange-mid); }
+        .cc-orange h4 { color: var(--orange); }
+        .cc-orange p { color: #906838; }
+        .cc-orange .carni-icon { background: var(--orange-mid); }
+
+        .cc-purple { background: var(--purple-light); border: 1px solid var(--purple-mid); }
+        .cc-purple h4 { color: var(--purple); }
+        .cc-purple p { color: #6850a0; }
+        .cc-purple .carni-icon { background: var(--purple-mid); }
+
+        .cc-teal { background: var(--teal-light); border: 1px solid var(--teal-mid); }
+        .cc-teal h4 { color: var(--teal); }
+        .cc-teal p { color: #2a7580; }
+        .cc-teal .carni-icon { background: var(--teal-mid); }
+
+        /* ── Nutriënt puzzelstukken ── */
+        .nutri-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.65rem;
+        }
+
+        .nutri-card {
+            display: grid;
+            grid-template-columns: 6px 1fr;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--white);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .nutri-card .bar { min-height: 100%; }
+        .nutri-card .bar-green { background: var(--green); }
+        .nutri-card .bar-purple { background: var(--purple); }
+        .nutri-card .bar-red { background: var(--red); }
+        .nutri-card .bar-orange { background: var(--orange); }
+        .nutri-card .bar-teal { background: var(--teal); }
+        .nutri-card .bar-blue { background: var(--blue); }
+
+        .nutri-body {
+            padding: 0.7rem 0.85rem;
+        }
+
+        .nutri-body h4 {
+            font-size: 0.73rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .nutri-body .role {
+            font-size: 0.63rem;
+            color: var(--text-mid);
+            line-height: 1.45;
+            margin-bottom: 0.3rem;
+        }
+
+        .nutri-body .fail {
+            font-size: 0.63rem;
+            color: var(--red);
+            font-weight: 600;
+            background: var(--red-light);
+            padding: 0.2rem 0.45rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        /* ── Digestive tract ── */
+        .digest-wrap {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 1.25rem;
+            align-items: start;
+        }
+
+        .digest-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .dv-organ {
+            width: 100%;
+            text-align: center;
+            padding: 0.4rem 0.5rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            position: relative;
+            border-left: 3px solid;
+            border-right: 3px solid;
+        }
+
+        .dv-organ span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.58rem;
+            color: var(--text-muted);
+            margin-top: 0.05rem;
+        }
+
+        .dv-conn {
+            width: 3px;
+            height: 6px;
+            background: var(--border);
+        }
+
+        .dv-mouth { background: var(--surface); border-color: var(--text-muted); color: var(--text-mid); border-radius: 8px 8px 0 0; }
+        .dv-eso { background: var(--surface); border-color: var(--text-muted); color: var(--text-mid); }
+        .dv-stomach { background: var(--red-light); border-color: var(--red-mid); color: var(--red); }
+        .dv-duo { background: var(--orange-light); border-color: var(--orange-mid); color: var(--orange); }
+        .dv-jej { background: var(--green-light); border-color: var(--green-mid); color: var(--green); }
+        .dv-ile { background: var(--teal-light); border-color: var(--teal-mid); color: var(--teal); }
+        .dv-colon { background: var(--purple-light); border-color: var(--purple-mid); color: var(--purple); border-radius: 0 0 8px 8px; }
+
+        .digest-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .dl-row {
+            display: grid;
+            grid-template-columns: 70px 1fr 1fr;
+            gap: 0.5rem;
+            font-size: 0.63rem;
+            line-height: 1.4;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dl-row:last-child { border-bottom: none; }
+
+        .dl-header {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-size: 0.58rem;
+            color: var(--text-muted);
+        }
+
+        .dl-organ { font-weight: 700; }
+        .dl-breakdown { color: var(--text-mid); }
+        .dl-absorb { color: var(--green); font-weight: 500; }
+
+        /* ── Prevention & Treatment ── */
+        .prev-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.65rem;
+        }
+
+        .prev-card {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: 0.85rem;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .prev-card .prev-icon {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .prev-card h4 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .prev-card p {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* ── Timeline ── */
+        .timeline {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 22px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green) 0%, var(--orange) 35%, var(--red) 70%, #1e2a5e 100%);
+            border-radius: 2px;
+        }
+
+        .tl-point {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding-top: 32px;
+        }
+
+        .tl-point::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--border);
+        }
+
+        .tl-point.tl-green::before { background: var(--green); box-shadow: 0 0 0 2px var(--green-mid); }
+        .tl-point.tl-orange::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange-mid); }
+        .tl-point.tl-red::before { background: var(--red); box-shadow: 0 0 0 2px var(--red-mid); }
+        .tl-point.tl-dark::before { background: #1e2a5e; box-shadow: 0 0 0 2px var(--blue-mid); }
+
+        .tl-point .tl-day {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .tl-point .tl-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 0.1rem;
+            line-height: 1.35;
+        }
+
+        /* ── Treatment diet bar ── */
+        .diet-bar {
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 32px;
+            margin: 0.75rem 0 0.35rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .diet-bar > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+        .db-protein { background: var(--blue); flex: 40; }
+        .db-fat { background: var(--orange); flex: 50; }
+        .db-carb { background: var(--purple); flex: 10; }
+
+        .diet-labels {
+            display: flex;
+            gap: 1.25rem;
+            font-size: 0.62rem;
+            color: var(--text-muted);
+        }
+
+        .diet-labels span::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 3px;
+            margin-right: 0.3rem;
+            vertical-align: middle;
+        }
+
+        .diet-labels .dl-p::before { background: var(--blue); }
+        .diet-labels .dl-f::before { background: var(--orange); }
+        .diet-labels .dl-c::before { background: var(--purple); }
+
+        /* ── Comparison ── */
+        .compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .compare-box {
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            border: 1.5px solid;
+        }
+
+        .compare-box h4 {
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+
+        .compare-box ul {
+            list-style: none;
+            font-size: 0.63rem;
+            line-height: 1.5;
+        }
+
+        .compare-box ul li {
+            padding: 0.1rem 0;
+        }
+
+        .compare-box.cb-cat {
+            background: var(--red-light);
+            border-color: var(--red-mid);
+        }
+        .compare-box.cb-cat h4 { color: var(--red); }
+        .compare-box.cb-cat ul { color: #904040; }
+
+        .compare-box.cb-dog {
+            background: var(--green-light);
+            border-color: var(--green-mid);
+        }
+        .compare-box.cb-dog h4 { color: var(--green); }
+        .compare-box.cb-dog ul { color: #306848; }
+
+        /* ── Footer ── */
+        .poster-footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 0.85rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        .poster-footer .refs {
+            max-width: 700px;
+            line-height: 1.5;
+        }
+
+        /* ── Toolbar ── */
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .toolbar-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 7px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .toolbar-btn:hover {
+            background: var(--border);
+            color: var(--text);
+        }
+
+        .toolbar-btn.active {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+
+        .toolbar-btn .btn-icon { font-size: 0.85rem; }
+
+        /* ── Source mode ── */
+        .src-mode [data-src] {
+            position: relative;
+            background-image: linear-gradient(120deg, rgba(59,88,200,0.10) 0%, rgba(59,88,200,0.06) 100%);
+            outline: 1.5px dashed rgba(59,88,200,0.30);
+            outline-offset: 2px;
+            border-radius: 4px;
+            cursor: help;
+            transition: outline-color 0.15s, background-image 0.15s;
+        }
+
+        .src-mode [data-src]:hover {
+            background-image: linear-gradient(120deg, rgba(59,88,200,0.18) 0%, rgba(59,88,200,0.10) 100%);
+            outline-color: rgba(59,88,200,0.6);
+        }
+
+        /* Tooltip */
+        .src-mode [data-src]:hover::after {
+            content: attr(data-src);
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1f2e;
+            color: #e0e2e9;
+            font-size: 0.6rem;
+            font-weight: 500;
+            line-height: 1.45;
+            padding: 0.4rem 0.65rem;
+            border-radius: 6px;
+            white-space: nowrap;
+            max-width: 420px;
+            white-space: normal;
+            z-index: 300;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+        }
+
+        .src-mode [data-src]:hover::before {
+            content: '';
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #1a1f2e;
+            z-index: 301;
+            pointer-events: none;
+        }
+
+        /* For elements near the top, flip tooltip below */
+        .src-mode .hero [data-src]:hover::after {
+            bottom: auto;
+            top: calc(100% + 6px);
+        }
+
+        .src-mode .hero [data-src]:hover::before {
+            bottom: auto;
+            top: calc(100% + 2px);
+            border-top-color: transparent;
+            border-bottom-color: #1a1f2e;
+        }
+
+        /* Source legend bar */
+        .src-legend {
+            display: none;
+            background: #1a1f2e;
+            color: #b0b8d0;
+            padding: 0.45rem 2.5rem;
+            font-size: 0.62rem;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .src-mode .src-legend { display: flex; }
+
+        .src-legend strong { color: #8fadff; margin-right: 0.25rem; }
+
+        .src-legend .src-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: rgba(255,255,255,0.08);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .src-legend .src-sample {
+            display: inline-block;
+            width: 18px;
+            height: 10px;
+            background: rgba(59,88,200,0.15);
+            outline: 1.5px dashed rgba(59,88,200,0.4);
+            border-radius: 2px;
+        }
+
+        /* ── Print ── */
+        @media print {
+            body { background: white; }
+            .toolbar, .src-legend { display: none !important; }
+            .poster {
+                margin: 0;
+                box-shadow: none;
+                border-radius: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="poster">
+
+    <!-- ═══ TOOLBAR ═══ -->
+    <div class="toolbar">
+        <button class="toolbar-btn" id="srcToggle">
+            <span class="btn-icon">&#128218;</span> Bronmodus
+        </button>
+    </div>
+    <div class="src-legend">
+        <strong>Bronmodus actief</strong>
+        <span class="src-hint"><span class="src-sample"></span> = bron beschikbaar, hover voor details</span>
+    </div>
+
+    <!-- ═══ HERO ═══ -->
+    <div class="hero">
+        <div class="hero-badge">Diervoeding &bull; Toegepaste Biologie</div>
+        <h1>Hepatische Lipidose<br><span>bij Katten</span></h1>
+        <p>Hoe voedingscompositie en het unieke metabolisme van de obligate carnivoor leiden tot leververvetting &mdash; en hoe het te voorkomen.</p>
+        <div class="hero-stats">
+            <div class="hero-stat" data-src="Webb (2018) JFMS 20(3):217-227 — ~50% van feline leverbiopten">
+                <div class="val">#1</div>
+                <div class="label">Meest voorkomende<br>leverziekte bij katten</div>
+            </div>
+            <div class="hero-stat" data-src="Cornell Feline Health Center — Hepatic Lipidosis">
+                <div class="val">95%</div>
+                <div class="label">Secundair aan<br>onderliggende ziekte</div>
+            </div>
+            <div class="hero-stat" data-src="Merck Veterinary Manual — Feline Hepatic Lipidosis; mink/polecats 2-5 dagen, katten 2-7 weken">
+                <div class="val">2–14 d</div>
+                <div class="label">Anorexie tot<br>klinische HL</div>
+            </div>
+            <div class="hero-stat" data-src="Webb (2018) JFMS — 75-80% overleving bij intensieve zorg">
+                <div class="val">80%</div>
+                <div class="label">Overleving met<br>intensieve zorg</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="poster-body">
+
+        <!-- ═══ 1. TWO-HIT MODEL ═══ -->
+        <div class="section-title">
+            <div class="section-num" style="background:var(--orange);">1</div>
+            <h2>Het Two-Hit Model</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="two-hit">
+            <div class="hit-box hit1" data-src="PMC7337193 — Management of Obesity in Cats; VLDL-TG 500% hoger bij obese katten">
+                <h4>Hit 1 — Obesitas</h4>
+                <p>Chronische overvoeding &rarr; uitgebreide vetopslag, insulineresistentie, VLDL-TG 500% hoger dan bij slanke katten</p>
+            </div>
+            <div class="hit-plus">+</div>
+            <div class="hit-box hit2" data-src="Cornell Feline Health Center — triggers: stress, ziekte, dieetwijziging, verblijf in pension">
+                <h4>Hit 2 — Anorexie</h4>
+                <p>Stress, ziekte of dieetwissel &rarr; massale lipolyse uit de enorme vetreserves binnen dagen</p>
+            </div>
+            <div class="hit-arrow">&rarr;</div>
+            <div class="hit-box result" data-src="Valtolina & Favier (2017) Vet Clin Small Anim 47(3):631-702">
+                <h4>Hepatische Lipidose</h4>
+                <p>&gt;80% van levercellen gevuld met vet &rarr; cholestase &rarr; leverfalen</p>
+            </div>
+        </div>
+
+        <!-- ═══ 2. OBLIGAAT CARNIVOOR ═══ -->
+        <div class="section-title">
+            <div class="section-num" style="background:var(--red);">2</div>
+            <h2>Waarom katten uniek kwetsbaar zijn</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="carni-grid">
+            <div class="carni-card cc-red" data-src="Verbrugghe & Bakovic (2013) Nutrients 5(7):2811-2835 — constitutief hoge transaminase/ureumcyclus-activiteit">
+                <div class="carni-icon">&#9888;</div>
+                <h4>Star eiwitkatabolisme</h4>
+                <p>Aminozuurafbraak-enzymen staan permanent hoog &mdash; kunnen niet downreguleren bij vasten. Aminozuren raken razendsnel uitgeput.</p>
+            </div>
+            <div class="carni-card cc-orange" data-src="Frontiers in Endocrinology (2013) — Normal Glucose Metabolism in Carnivores Overlaps with Diabetes Pathology in Non-Carnivores">
+                <div class="carni-icon">&#9881;</div>
+                <h4>Permanente gluconeogenese</h4>
+                <p>Glucose wordt altijd uit aminozuren gemaakt, niet uit koolhydraten. Geen enzymatische flexibiliteit.</p>
+            </div>
+            <div class="carni-card cc-purple" data-src="PMC5753635 — Cats and Carbohydrates: The Carnivore Fantasy?; geen salivair amylase, ~5% pancreatisch amylase">
+                <div class="carni-icon">&#10007;</div>
+                <h4>Beperkte koolhydraatvertering</h4>
+                <p>Geen speekselamylase. Pancreasamylase ~5% van hondenniveau. Geen lactase/sucrase bij adulten.</p>
+            </div>
+            <div class="carni-card cc-teal" data-src="Zoran (2002) JAVMA 221(11):1559-1567 — The Carnivore Connection to Nutrition in Cats">
+                <div class="carni-icon">&#9733;</div>
+                <h4>Essentiële nutriënten</h4>
+                <p>Kan taurine, arginine, arachidonzuur, vitamine A, niacine en vitamine D niet (voldoende) zelf maken.</p>
+            </div>
+        </div>
+
+        <!-- Vergelijking kat vs. hond -->
+        <div class="compare">
+            <div class="compare-box cb-cat" data-src="PMC9942351 — Amino Acid Nutrition and Metabolism in Domestic Cats and Dogs; Zoran (2002) JAVMA">
+                <h4>&#128049; Kat (obligaat carnivoor)</h4>
+                <ul>
+                    <li>&#10060; Aminozuurkatabolisme niet aanpasbaar</li>
+                    <li>&#10060; Ureumcyclus permanent hoog actief</li>
+                    <li>&#10060; Geen ornithinesynthese (arginine = essentieel)</li>
+                    <li>&#10060; Obligate taurine-galzoutconjugatie</li>
+                    <li>&#10060; Geen delta-6-desaturase voor arachidonzuur</li>
+                    <li>&#10060; B12-behoefte 5&times; hoger dan mens</li>
+                </ul>
+            </div>
+            <div class="compare-box cb-dog" data-src="PMC9942351 — vergelijking kat vs. hond aminozuurmetabolisme; Zoran (2002) JAVMA">
+                <h4>&#128054; Hond (omnivoor)</h4>
+                <ul>
+                    <li>&#9989; Kan eiwitkatabolisme downreguleren</li>
+                    <li>&#9989; Ureumcyclus past zich aan aan intake</li>
+                    <li>&#9989; Kan ornithine zelf synthetiseren</li>
+                    <li>&#9989; Kan galzouten met glycine conjugeren</li>
+                    <li>&#9989; Kan arachidonzuur uit linolzuur maken</li>
+                    <li>&#9989; Lagere B-vitaminebehoefte</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ═══ 3. MECHANISME ═══ -->
+        <div class="section-title">
+            <div class="section-num" style="background:var(--blue);">3</div>
+            <h2>Het mechanisme stap voor stap</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="mech-flow">
+            <div class="mech-step s-blue" data-src="Verbrugghe & Bakovic (2013) Nutrients — hormoongedreven lipolyse bij vasten">
+                <h4>&#10102; Anorexie / vasten</h4>
+                <p>&darr; Insuline &ensp;&uarr; Catecholaminen &rarr; hormoon-sensitieve lipase geactiveerd in vetweefsel</p>
+            </div>
+            <div class="mech-arrow"></div>
+            <div class="mech-step s-orange" data-src="PMC10814635 — Altered Lipoprotein Profiles in Cats with Hepatic Lipidosis; NEFA-mobilisatie concentratie-afhankelijk">
+                <h4>&#10103; Massale perifere lipolyse</h4>
+                <p>Vrije vetzuren (NEFA's) mobiliseren uit vetweefsel &rarr; via albumine naar de lever (bij obese katten: dramatisch meer)</p>
+            </div>
+            <div class="mech-arrow"></div>
+            <div class="mech-step s-blue" data-src="Verbrugghe & Bakovic (2013) Nutrients — hepatische opname is concentratie-afhankelijk">
+                <h4>&#10104; Vetzuren overspoelen de lever</h4>
+                <p>Hepatocyten nemen vetzuren concentratie-afhankelijk op &mdash; instroom >> verwerkingscapaciteit</p>
+            </div>
+            <div class="mech-arrow"></div>
+            <div class="mech-split">
+                <div class="mech-step s-red" data-src="Verbrugghe & Bakovic (2013) — relatieve carnitine-insufficiëntie; carnitinesynthese SAMe-afhankelijk">
+                    <h4>&#10006; B&egrave;ta-oxidatie faalt</h4>
+                    <p>Carnitine-insuffici&euml;ntie blokkeert vetzuurtransport naar mitochondri&euml;n</p>
+                </div>
+                <div class="mech-step s-red" data-src="Verbrugghe & Bakovic (2013) — PEMT-pad en ApoB100/ApoE-tekort; PMC3739000">
+                    <h4>&#10006; VLDL-export faalt</h4>
+                    <p>Tekort ApoB100, fosfatidylcholine (PC), ApoE door aminozuurdepletie</p>
+                </div>
+            </div>
+            <div class="mech-arrow"></div>
+            <div class="mech-step s-purple" data-src="Verbrugghe & Bakovic (2013) — ACC-1 en FAS upregulatie; acetaat als koolstofbron voor de novo lipogenese bij katten">
+                <h4>&#10105; Paradoxale de novo lipogenese</h4>
+                <p>ACC-1 en FAS worden opgereguleerd bij vasten &mdash; acetaat als koolstofbron &rarr; m&eacute;&eacute;r vet in de lever</p>
+            </div>
+            <div class="mech-arrow"></div>
+            <div class="mech-step s-red" style="border-width:2.5px;" data-src="Webb (2018) JFMS — HL defined as >50% hepatocyte cytosol displaced by TG; vicieuze cirkel beschreven">
+                <h4>&#10106; Triglyceriden stapelen op &rarr; leverfalen</h4>
+                <p>&gt;80% celvolume gevuld &rarr; cholestase &rarr; leverdisfunctie &rarr; nausea &rarr; verdere anorexie &rarr; vicieuze cirkel</p>
+            </div>
+        </div>
+
+        <!-- ═══ 4. SLEUTELNUTRIËNTEN ═══ -->
+        <div class="section-title">
+            <div class="section-num" style="background:var(--green);">4</div>
+            <h2>Sleutelnutriënten die falen bij HL</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="nutri-grid">
+            <div class="nutri-card" data-src="Verbrugghe & Bakovic (2013) Nutrients — carnitine shuttle CPT-I/II; relatieve insufficiëntie bij HL">
+                <div class="bar bar-green"></div>
+                <div class="nutri-body">
+                    <h4>L-Carnitine</h4>
+                    <div class="role">Shuttelt langketenige vetzuren via CPT-I/II over de mitochondriële membraan voor bèta-oxidatie. Synthese vereist lysine + SAMe + B-vitamines + ijzer.</div>
+                    <div class="fail">&#10006; Relatieve insufficiëntie &mdash; vraag >> synthese</div>
+                </div>
+            </div>
+            <div class="nutri-card" data-src="Verbrugghe & Bakovic (2013) Nutrients — PEMT-pad, Kennedy-pad; PMC3739000; methionine daalt >50% bij HL">
+                <div class="bar bar-purple"></div>
+                <div class="nutri-body">
+                    <h4>Methionine &amp; Choline</h4>
+                    <div class="role">Methionine &rarr; SAMe &rarr; fosfatidylcholine (VLDL-mantel) + carnitinesynthese + glutathion (antioxidant). Choline: direct naar PC via Kennedy-pad.</div>
+                    <div class="fail">&#10006; Plasma-methionine daalt &gt;50% &rarr; VLDL-assemblage stopt</div>
+                </div>
+            </div>
+            <div class="nutri-card" data-src="ScienceDirect — Arginine: An Essential Amino Acid for the Cat; fatale hyperammoniëmie binnen 2-5u">
+                <div class="bar bar-red"></div>
+                <div class="nutri-body">
+                    <h4>Arginine</h4>
+                    <div class="role">Essentieel voor ureumcyclus (ammoniakdetoxificatie) + ApoE-synthese (VLDL-export). Katten kunnen geen ornithine synthetiseren.</div>
+                    <div class="fail">&#10006; 1 arginine-vrije maaltijd = fatale hyperammoniëmie</div>
+                </div>
+            </div>
+            <div class="nutri-card" data-src="VCA Animal Hospitals — Taurine in Cats; Nature Scientific Reports (2020) — Impaired Bile Acid Metabolism with Taurine Depletion">
+                <div class="bar bar-orange"></div>
+                <div class="nutri-body">
+                    <h4>Taurine</h4>
+                    <div class="role">Obligate conjugatie van galzouten met taurine (niet glycine). Essentieel voor micelvorming en vetvertering. Continue drain door bacteriële deconjugatie.</div>
+                    <div class="fail">&#10006; Deficiëntie &rarr; verstoorde vetstofwisseling + retinale degeneratie</div>
+                </div>
+            </div>
+            <div class="nutri-card" data-src="Nature (1975) — Inability of the Cat to Desaturate Essential Fatty Acids; PPARα/SREBP-1c regulatie in Verbrugghe & Bakovic (2013)">
+                <div class="bar bar-teal"></div>
+                <div class="nutri-body">
+                    <h4>Essentiële vetzuren (PUFA's)</h4>
+                    <div class="role">Activeren PPARα (stimuleert bèta-oxidatie), onderdrukken SREBP-1c (remt de novo lipogenese). Arachidonzuur is essentieel bij katten.</div>
+                    <div class="fail">&#10006; PUFA-tekort &rarr; verminderde oxidatie + doorgaande lipogenese</div>
+                </div>
+            </div>
+            <div class="nutri-card" data-src="PMC10177498 — Vitamin B12 in Cats; PMC5753639 — Role of Thiamine in Dogs and Cats; 40% subnormaal B12 bij HL">
+                <div class="bar bar-blue"></div>
+                <div class="nutri-body">
+                    <h4>B-vitamines</h4>
+                    <div class="role">B12: methioninerecycling. B1: pyruvaatdehydrogenase. B6: glutathion/taurinesynthese. B3 (niacine): NAD⁺/NADP⁺ voor bèta-oxidatie.</div>
+                    <div class="fail">&#10006; 40% van HL-katten: subnormaal B12 &rarr; methylatiesysteem faalt</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ 5. VERTERINGSSTELSEL ═══ -->
+        <div class="section-title">
+            <div class="section-num" style="background:var(--teal);">5</div>
+            <h2>Verteringsstelsel: afbraak &amp; absorptie</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="digest-wrap">
+            <div class="digest-visual">
+                <div class="dv-organ dv-mouth">Mond <span>30 scheurtanden, geen amylase</span></div>
+                <div class="dv-conn"></div>
+                <div class="dv-organ dv-eso">Slokdarm <span>~22 cm, peristaltiek</span></div>
+                <div class="dv-conn"></div>
+                <div class="dv-organ dv-stomach">Maag <span>pH 1-2, pepsine</span></div>
+                <div class="dv-conn"></div>
+                <div class="dv-organ dv-duo">Duodenum <span>14-16 cm</span></div>
+                <div class="dv-conn"></div>
+                <div class="dv-organ dv-jej">Jejunum <span>~130 cm, hoofdabsorptie</span></div>
+                <div class="dv-conn"></div>
+                <div class="dv-organ dv-ile">Ileum <span>~2,5 cm, B12</span></div>
+                <div class="dv-conn"></div>
+                <div class="dv-organ dv-colon">Colon <span>~33 cm, water</span></div>
+            </div>
+
+            <div class="digest-legend">
+                <div class="dl-row">
+                    <div class="dl-header">Locatie</div>
+                    <div class="dl-header">Afbraak</div>
+                    <div class="dl-header">Absorptie</div>
+                </div>
+                <div class="dl-row" data-src="Vet Medicine LibreTexts — Proteins, Digestion and Absorption; StatPearls — Physiology, Nutrient Absorption">
+                    <div class="dl-organ" style="color:var(--red);">Maag</div>
+                    <div class="dl-breakdown"><strong>Eiwit:</strong> HCl + pepsine &rarr; polypeptiden<br><strong>Mineralen:</strong> vrijmaking door maagzuur (Fe³⁺ &rarr; Fe²⁺)</div>
+                    <div class="dl-absorb">&mdash;</div>
+                </div>
+                <div class="dl-row" data-src="Oregon State — Principles of Animal Nutrition (Lipid Digestion); PMC10451872 — GI Tract Anatomy in Cats">
+                    <div class="dl-organ" style="color:var(--orange);">Duodenum</div>
+                    <div class="dl-breakdown"><strong>Eiwit:</strong> trypsine, chymotrypsine, carboxypeptidase<br><strong>Vet:</strong> galzouten emulgeren &rarr; pancreaslipase + colipase &rarr; micellen<br><strong>Koolhydraat:</strong> pancreatisch amylase (~5% van hond)</div>
+                    <div class="dl-absorb">Fe²⁺ (DMT1), Ca²⁺ (TRPV6), fosfor, vet-oplosbare vitamines (A, D, E, K via micellen)</div>
+                </div>
+                <div class="dl-row" data-src="StatPearls — Physiology, Nutrient Absorption; PMC4419090 — PepT1; Colorado State — Absorption of Vitamins & Minerals">
+                    <div class="dl-organ" style="color:var(--green);">Jejunum</div>
+                    <div class="dl-breakdown"><strong>Eiwit:</strong> aminopeptidasen, dipeptidasen (borstelzoom)<br><strong>Koolhydraat:</strong> lage maltase, geen lactase/sucrase</div>
+                    <div class="dl-absorb"><strong>Aminozuren</strong> (Na⁺-transport), <strong>di/tripeptiden</strong> (PepT1), <strong>vetzuren</strong> &rarr; chylomicronen &rarr; lymfe, <strong>glucose</strong> (SGLT1, 2× langzamer dan hond), <strong>fructose</strong> (GLUT5), wateroplosbare vitamines, Zn, Cu, Mg</div>
+                </div>
+                <div class="dl-row" data-src="Colorado State — Absorption of Vitamins (B12 via intrinsic factor); PMC10451872 — ileum slechts ~2,5 cm bij kat">
+                    <div class="dl-organ" style="color:var(--teal);">Ileum</div>
+                    <div class="dl-breakdown">&mdash;</div>
+                    <div class="dl-absorb"><strong>Vitamine B12</strong> (intrinsic factor + cubiline), <strong>galzouten</strong> (enterohepatische kringloop, ~95% hergebruik)</div>
+                </div>
+                <div class="dl-row" data-src="WSU Veterinary Teaching Hospital — Digestive System of the Cat; PetPlace — GI Tract in Cats">
+                    <div class="dl-organ" style="color:var(--purple);">Colon</div>
+                    <div class="dl-breakdown">Bacteriële fermentatie &rarr; korteketenvetzuren (SCFA's)</div>
+                    <div class="dl-absorb"><strong>Water</strong> (osmose), Na⁺/K⁺/Cl⁻, microbiële vitamines (biotine, foliumzuur, vit. K)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ 6. TIJDLIJN ═══ -->
+        <div class="section-title">
+            <div class="section-num" style="background:#1e2a5e;">6</div>
+            <h2>Tijdlijn: van anorexie naar leverfalen</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="timeline">
+            <div class="tl-point tl-green" data-src="Cornell Feline Health Center — anorexie als trigger">
+                <div class="tl-day">Dag 0</div>
+                <div class="tl-label">Kat stopt<br>met eten</div>
+            </div>
+            <div class="tl-point tl-orange" data-src="Merck Vet Manual — lipolyse start binnen dagen; mink/polecats 2-5 dagen">
+                <div class="tl-day">Dag 2-5</div>
+                <div class="tl-label">Lipolyse start &mdash;<br>NEFA's naar lever</div>
+            </div>
+            <div class="tl-point tl-red" data-src="Webb (2018) JFMS — klinische presentatie 1-2 weken na anorexie-onset">
+                <div class="tl-day">Dag 7-14</div>
+                <div class="tl-label">Klinische HL &mdash;<br>icterus, lethargie</div>
+            </div>
+            <div class="tl-point tl-dark" data-src="Webb (2018) JFMS — HL resolves binnen 14-21 dagen of patiënt overlijdt">
+                <div class="tl-day">Zonder behandeling</div>
+                <div class="tl-label">Leverfalen &mdash;<br>fataal</div>
+            </div>
+        </div>
+
+        <!-- ═══ 7. PREVENTIE & BEHANDELING ═══ -->
+        <div class="section-title">
+            <div class="section-num" style="background:var(--green);">7</div>
+            <h2>Preventie &amp; behandeling via voeding</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="prev-grid">
+            <div class="prev-card" data-src="PMC7337193 — Management of Obesity in Cats; 0,5-2% LG/week veilig afvaltempo">
+                <div class="prev-icon">&#9878;</div>
+                <h4>Gewichtscontrole</h4>
+                <p>Voorkom obesitas. Afvallen: max 0,5-2% LG/week. Nooit plots vasten.</p>
+            </div>
+            <div class="prev-card" data-src="Cornell Feline Health Center — >24-48u anorexie = veterinaire aandacht vereist">
+                <div class="prev-icon">&#128203;</div>
+                <h4>Dagelijks monitoren</h4>
+                <p>&gt;24-48u niet eten = dierenarts. Extra aandacht bij stress/verhuizing.</p>
+            </div>
+            <div class="prev-card" data-src="PMC10911567 — From Anorexia to Obesity: Role of Nutrition in Feline Diseases">
+                <div class="prev-icon">&#128257;</div>
+                <h4>Geleidelijke dieetwissel</h4>
+                <p>Altijd over 7-10 dagen. Nooit abrupt nieuw voer.</p>
+            </div>
+            <div class="prev-card" data-src="Zoran (2002) JAVMA — hoge eiwitbehoefte obligate carnivoor; essentiële aminozuren">
+                <div class="prev-icon">&#9989;</div>
+                <h4>Voedingskwaliteit</h4>
+                <p>Eiwitrijk + voldoende methionine, taurine, arginine, carnitine, B-vit.</p>
+            </div>
+        </div>
+
+        <h4 style="font-size:0.78rem;font-weight:700;margin-top:1rem;margin-bottom:0.25rem;">Dieetcompositie bij behandeling</h4>
+
+        <div class="diet-bar" data-src="Royal Canin Academy — Treatment of Hepatic Lipidosis; hoog eiwit + vet, laag koolhydraat">
+            <div class="db-protein">Eiwit 30-45%</div>
+            <div class="db-fat">Vet ~50%</div>
+            <div class="db-carb">&lt;20%</div>
+        </div>
+        <div class="diet-labels">
+            <span class="dl-p">Eiwit &mdash; leverregeneratie, ApoB100-synthese</span>
+            <span class="dl-f">Vet &mdash; energiedicht, goed verdragen</span>
+            <span class="dl-c">Koolhydraten &mdash; laag (glucoseintolerantie)</span>
+        </div>
+
+    </div><!-- /poster-body -->
+
+    <!-- ═══ FOOTER ═══ -->
+    <div class="poster-footer">
+        <div class="refs">
+            <strong>Bronnen:</strong> Verbrugghe &amp; Bakovic (2013) Nutrients; Webb (2018) JFMS; Zoran (2002) JAVMA; Cornell Feline Health Center; Merck Vet Manual; Royal Canin Academy; Purina Institute
+        </div>
+        <div style="text-align:right;">
+            <strong>Kell</strong> &bull; Diervoeding<br>Toegepaste Biologie
+        </div>
+    </div>
+
+</div><!-- /poster -->
+
+<script>
+document.getElementById('srcToggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.poster').classList.toggle('src-mode');
+});
+</script>
+
+</body>
+</html>
