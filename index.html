@@ -200,6 +200,7 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
+            display: none;
         }
 
         .tab-content { display: none; }
@@ -915,6 +916,11 @@
 
         /* ── Responsive: sidebar collapses on small screens ── */
         @media (max-width: 768px) {
+            .header-inner { gap: 0.75rem; flex-wrap: wrap; height: auto; padding: 8px 0; }
+            .search-wrap { flex: 1 1 100%; order: 10; min-width: 0; }
+            .tabs { order: 5; }
+            .vakken-btn span.vb-label { display: none; }
+
             .subject-layout {
                 flex-direction: column;
             }
@@ -946,6 +952,11 @@
                 border-left-color: transparent;
                 border-bottom-color: var(--accent);
             }
+
+            .home-hero { padding: 2rem 1.25rem 1.75rem; }
+            .home-hero .greeting { font-size: 1.5rem; }
+            .home-subjects { grid-template-columns: 1fr; }
+            .vakken-grid { grid-template-columns: 1fr; }
         }
 
         /* ── Utils ── */
@@ -1031,6 +1042,319 @@
         #pw-gate .pw-err { color: var(--red); font-size: 0.85em; margin-top: 8px; display: none; }
         #app-content { display: none; }
         #app-content.unlocked { display: block; }
+
+        /* ── Search bar ── */
+        .search-wrap {
+            position: relative;
+            flex: 0 1 260px;
+            min-width: 140px;
+        }
+        .search-wrap input {
+            width: 100%;
+            padding: 7px 12px 7px 32px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface2);
+            color: var(--text);
+            font-size: 0.82rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-wrap input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .search-wrap input::placeholder { color: var(--text-muted); }
+        .search-wrap .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            pointer-events: none;
+        }
+        .search-wrap .search-results {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0; right: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            display: none;
+            z-index: 200;
+            overflow: hidden;
+        }
+        .search-wrap .search-results.open { display: block; }
+        .search-result-item {
+            padding: 10px 14px;
+            font-size: 0.83rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.15s;
+        }
+        .search-result-item:hover, .search-result-item.highlighted {
+            background: var(--surface2);
+        }
+        .search-result-item .sr-dot { flex-shrink: 0; }
+        .search-result-item .sr-label { color: var(--text); }
+        .search-result-item .sr-sub { color: var(--text-muted); font-size: 0.75rem; margin-left: auto; }
+        .search-no-results {
+            padding: 12px 14px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* ── Vakken button ── */
+        .vakken-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--surface2);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .vakken-btn:hover { background: var(--surface3); color: var(--text); }
+        .vakken-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        /* ── Home page ── */
+        .home-page {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .home-page.active { display: block; }
+
+        .home-hero {
+            text-align: center;
+            padding: 3rem 2rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-glow), var(--purple-dim), var(--cyan-dim));
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+        .home-hero .greeting {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .home-hero .greeting span { color: var(--accent); }
+        .home-hero .motivational {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+        }
+        .home-hero .date-display {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .home-section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .home-subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .home-subject-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .home-subject-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+        .home-subject-card .hsc-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        .home-subject-card .hsc-icon.green { background: var(--green-dim); }
+        .home-subject-card .hsc-icon.purple { background: var(--purple-dim); }
+        .home-subject-card .hsc-icon.cyan { background: var(--cyan-dim); }
+        .home-subject-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: var(--text);
+        }
+        .home-subject-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+        .home-subject-card .hsc-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            font-size: 1.1rem;
+        }
+        .home-subject-card:hover .hsc-arrow {
+            opacity: 1;
+            transform: translateY(-50%) translateX(3px);
+        }
+
+        .home-tip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .home-tip .tip-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.35rem;
+        }
+        .home-tip .tip-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── Vakken overzicht ── */
+        .vakken-page {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .vakken-page.active { display: block; }
+        .vakken-page h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.4rem;
+        }
+        .vakken-page .vakken-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .vakken-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+        .vakken-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow);
+        }
+        .vakken-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+        .vakken-card .vc-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+        .vakken-card .vc-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .vakken-card .vc-icon.green { background: var(--green-dim); }
+        .vakken-card .vc-icon.purple { background: var(--purple-dim); }
+        .vakken-card .vc-icon.cyan { background: var(--cyan-dim); }
+        .vakken-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .vakken-card .vc-desc {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .vakken-card .vc-tags {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+        .vakken-card .vc-open {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 1rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* ── Home button in header ── */
+        .home-btn {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface2);
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .home-btn:hover { background: var(--surface3); color: var(--text); }
+        .home-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
     </style>
 </head>
 <body>
@@ -1057,20 +1381,15 @@ document.addEventListener('DOMContentLoaded',()=>{if(sessionStorage.getItem('ksh
 <!-- ════════════ HEADER ════════════ -->
 <header>
     <div class="header-inner">
+        <button class="home-btn active" id="homeBtn" title="Home">&#8962;</button>
         <div class="logo"><span>K</span>ell Study Hub</div>
-        <div class="tabs" id="tabs">
-            <div class="tab active" data-tab="diervoeding">
-                <span class="dot dot-green"></span> Diervoeding
-            </div>
-            <div class="tab" data-tab="stage">
-                <span class="dot dot-purple"></span> Stage Buitenland
-            </div>
-            <div class="tab" data-tab="genetica">
-                <span class="dot dot-cyan"></span> Toegepaste Genetica
-            </div>
-            <div class="tab-add">+</div>
+        <div class="search-wrap" id="searchWrap">
+            <span class="search-icon">&#128269;</span>
+            <input type="text" id="searchInput" placeholder="Zoek een vak..." autocomplete="off">
+            <div class="search-results" id="searchResults"></div>
         </div>
         <div class="header-right">
+            <button class="vakken-btn" id="vakkenBtn">&#9776; Vakken</button>
             <button class="src-toggle" id="srcModeToggle" title="Bronmodus">&#128218;</button>
             <button class="theme-toggle" id="themeToggle" title="Wissel thema">
                 <span class="icon-moon">&#9790;</span>
@@ -1086,11 +1405,94 @@ document.addEventListener('DOMContentLoaded',()=>{if(sessionStorage.getItem('ksh
     <iframe id="fullscreenFrame" src=""></iframe>
 </div>
 
+<!-- ════════════ HOME PAGE ════════════ -->
+<div class="home-page active" id="homePage">
+    <div class="home-hero">
+        <div class="greeting">Hey <span>Kell</span> &#128075;</div>
+        <p class="motivational" id="homeMotivational">Elke stap die je zet brengt je dichter bij je doel. Je bent al zo ver gekomen — blijf doorgaan!</p>
+        <div class="date-display" id="homeDate"></div>
+    </div>
+
+    <div class="home-section-title">Ga verder met studeren</div>
+    <div class="home-subjects">
+        <div class="home-subject-card" data-navigate="diervoeding">
+            <div class="hsc-icon green">&#129433;</div>
+            <h3>Diervoeding</h3>
+            <p>Hepatische lipidose bij katten &mdash; pathofysiologie, voeding &amp; vertering</p>
+            <span class="hsc-arrow">&rarr;</span>
+        </div>
+        <div class="home-subject-card" data-navigate="stage">
+            <div class="hsc-icon purple">&#9992;</div>
+            <h3>Stage Buitenland</h3>
+            <p>Onderzoeksstages wereldwijd &mdash; landen, financiering &amp; actieplannen</p>
+            <span class="hsc-arrow">&rarr;</span>
+        </div>
+        <div class="home-subject-card" data-navigate="genetica">
+            <div class="hsc-icon cyan">&#129516;</div>
+            <h3>Toegepaste Genetica</h3>
+            <p>Erfelijkheid, veredeling, fokkerij &mdash; theorie, formules &amp; oefenvragen</p>
+            <span class="hsc-arrow">&rarr;</span>
+        </div>
+    </div>
+
+    <div class="home-tip">
+        <div class="tip-title">Studietip van de dag</div>
+        <div class="tip-text" id="homeTip">Verdeel je studeersessies in blokken van 25 minuten met 5 minuten pauze (Pomodoro). Je hersenen onthouden meer als je ze rust geeft!</div>
+    </div>
+</div>
+
+<!-- ════════════ VAKKEN OVERZICHT ════════════ -->
+<div class="vakken-page" id="vakkenPage">
+    <h1>Alle Vakken</h1>
+    <p class="vakken-subtitle">Een overzicht van al je studieonderwerpen &mdash; klik op een vak om direct te beginnen.</p>
+    <div class="vakken-grid">
+        <div class="vakken-card" data-navigate="diervoeding">
+            <div class="vc-header">
+                <div class="vc-icon green">&#129433;</div>
+                <h3>Diervoeding</h3>
+            </div>
+            <p class="vc-desc">Alles over hepatische lipidose (leververvetting) bij katten: pathofysiologie, het verteringsstelsel, voedingsmanagement en een interactieve infographic.</p>
+            <div class="vc-tags">
+                <span class="tag tag-green">Diervoeding</span>
+                <span class="tag tag-orange">Pathologie</span>
+                <span class="tag tag-purple">Metabolisme</span>
+            </div>
+            <div class="vc-open">Openen &rarr;</div>
+        </div>
+        <div class="vakken-card" data-navigate="stage">
+            <div class="vc-header">
+                <div class="vc-icon purple">&#9992;</div>
+                <h3>Stage Buitenland</h3>
+            </div>
+            <p class="vc-desc">Onderzoek naar 30+ stagemogelijkheden in 9 landen, met financieel overzicht, beurzen, en een stap-voor-stap actieplan.</p>
+            <div class="vc-tags">
+                <span class="tag tag-purple">Stage</span>
+                <span class="tag tag-orange">Buitenland</span>
+                <span class="tag tag-green">Planning</span>
+            </div>
+            <div class="vc-open">Openen &rarr;</div>
+        </div>
+        <div class="vakken-card" data-navigate="genetica">
+            <div class="vc-header">
+                <div class="vc-icon cyan">&#129516;</div>
+                <h3>Toegepaste Genetica</h3>
+            </div>
+            <p class="vc-desc">Compleet studieoverzicht van domesticatie tot ploïdie, met formuleblad, 50 interactieve oefenvragen en uitgewerkte berekeningen.</p>
+            <div class="vc-tags">
+                <span class="tag tag-cyan">Genetica</span>
+                <span class="tag tag-orange">Berekeningen</span>
+                <span class="tag tag-purple">Oefenvragen</span>
+            </div>
+            <div class="vc-open">Openen &rarr;</div>
+        </div>
+    </div>
+</div>
+
 <!-- ════════════ MAIN ════════════ -->
 <main>
 
 <!-- ━━━━━━ TAB: Diervoeding ━━━━━━ -->
-<div class="tab-content active" id="tab-diervoeding">
+<div class="tab-content" id="tab-diervoeding">
 
     <div class="topic-header">
         <h1>Hepatische Lipidose bij Katten</h1>
@@ -4225,15 +4627,149 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('kell-theme', next);
 });
 
-// ── Top tab switching ──
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
-    });
+// ── Navigation helper: switch to a view ──
+function navigateTo(view) {
+    // Hide everything
+    document.getElementById('homePage').classList.remove('active');
+    document.getElementById('vakkenPage').classList.remove('active');
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('homeBtn').classList.remove('active');
+    document.getElementById('vakkenBtn').classList.remove('active');
+    // Show main only for tab views
+    document.querySelector('main').style.display = 'none';
+
+    if (view === 'home') {
+        document.getElementById('homePage').classList.add('active');
+        document.getElementById('homeBtn').classList.add('active');
+    } else if (view === 'vakken') {
+        document.getElementById('vakkenPage').classList.add('active');
+        document.getElementById('vakkenBtn').classList.add('active');
+    } else {
+        // It's a subject tab
+        document.querySelector('main').style.display = 'block';
+        const content = document.getElementById('tab-' + view);
+        if (content) content.classList.add('active');
+    }
+}
+
+// ── Home button ──
+document.getElementById('homeBtn').addEventListener('click', () => navigateTo('home'));
+
+// ── Vakken button ──
+document.getElementById('vakkenBtn').addEventListener('click', () => navigateTo('vakken'));
+
+// ── Subject card navigation (home page + vakken page) ──
+document.querySelectorAll('[data-navigate]').forEach(card => {
+    card.addEventListener('click', () => navigateTo(card.dataset.navigate));
 });
+
+// ── Home page: date & motivational quotes ──
+(function initHome() {
+    const days = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+    const months = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+    const now = new Date();
+    const dateEl = document.getElementById('homeDate');
+    if (dateEl) dateEl.textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()] + ' ' + now.getFullYear();
+
+    const quotes = [
+        'Elke stap die je zet brengt je dichter bij je doel. Je bent al zo ver gekomen \u2014 blijf doorgaan!',
+        'Het maakt niet uit hoe langzaam je gaat, zolang je maar niet stopt.',
+        'Succes is de som van kleine inspanningen, dag na dag herhaald.',
+        'Je hoeft niet perfect te zijn. Je moet alleen beginnen.',
+        'Discipline is de brug tussen doelen en resultaten.',
+        'Je toekomstige zelf zal je dankbaar zijn voor het harde werk van vandaag.',
+        'Fouten zijn bewijs dat je het probeert \u2014 leer ervan en ga door.',
+        'Focus op vooruitgang, niet op perfectie.',
+    ];
+    const motEl = document.getElementById('homeMotivational');
+    if (motEl) motEl.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+    const tips = [
+        'Verdeel je studeersessies in blokken van 25 minuten met 5 minuten pauze (Pomodoro). Je hersenen onthouden meer als je ze rust geeft!',
+        'Leg een concept uit alsof je het aan iemand anders uitlegt \u2014 dat is de beste manier om te checken of je het echt snapt.',
+        'Gebruik actieve herhaling: sluit je boek en schrijf op wat je nog weet. Wat je vergeet, herhaal je.',
+        'Studeer niet alleen met lezen \u2014 maak samenvattingen, tekeningen of schema\u0027s voor beter begrip.',
+        'Drink genoeg water en neem regelmatig pauze. Een uitgeruste geest leert sneller!',
+        'Wissel moeilijke en makkelijke onderwerpen af zodat je gemotiveerd blijft.',
+        'Plan je studiesessies van tevoren \u2014 structuur helpt je om consistent te blijven.',
+    ];
+    const tipEl = document.getElementById('homeTip');
+    if (tipEl) tipEl.textContent = tips[Math.floor(Math.random() * tips.length)];
+})();
+
+// ── Search functionality ──
+(function initSearch() {
+    const subjects = [
+        { name: 'Diervoeding', sub: 'Hepatische lipidose bij katten', tab: 'diervoeding', color: 'green' },
+        { name: 'Stage Buitenland', sub: 'Onderzoeksstages wereldwijd', tab: 'stage', color: 'purple' },
+        { name: 'Toegepaste Genetica', sub: 'Erfelijkheid, fokkerij & oefenvragen', tab: 'genetica', color: 'cyan' },
+    ];
+
+    const input = document.getElementById('searchInput');
+    const resultsBox = document.getElementById('searchResults');
+    let highlightIdx = -1;
+
+    function render(filtered) {
+        highlightIdx = -1;
+        if (filtered.length === 0) {
+            resultsBox.innerHTML = '<div class="search-no-results">Geen resultaten gevonden</div>';
+        } else {
+            resultsBox.innerHTML = filtered.map((s, i) =>
+                '<div class="search-result-item" data-idx="' + i + '" data-tab="' + s.tab + '">' +
+                '<span class="sr-dot dot dot-' + s.color + '"></span>' +
+                '<span class="sr-label">' + s.name + '</span>' +
+                '<span class="sr-sub">' + s.sub + '</span></div>'
+            ).join('');
+        }
+        resultsBox.classList.add('open');
+    }
+
+    input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        if (!q) { resultsBox.classList.remove('open'); return; }
+        const filtered = subjects.filter(s =>
+            s.name.toLowerCase().includes(q) || s.sub.toLowerCase().includes(q) || s.tab.toLowerCase().includes(q)
+        );
+        render(filtered);
+    });
+
+    input.addEventListener('keydown', (e) => {
+        const items = resultsBox.querySelectorAll('.search-result-item');
+        if (!items.length) return;
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            highlightIdx = Math.min(highlightIdx + 1, items.length - 1);
+            items.forEach((it, i) => it.classList.toggle('highlighted', i === highlightIdx));
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            highlightIdx = Math.max(highlightIdx - 1, 0);
+            items.forEach((it, i) => it.classList.toggle('highlighted', i === highlightIdx));
+        } else if (e.key === 'Enter' && highlightIdx >= 0) {
+            e.preventDefault();
+            const tab = items[highlightIdx].dataset.tab;
+            navigateTo(tab);
+            input.value = '';
+            resultsBox.classList.remove('open');
+        }
+    });
+
+    resultsBox.addEventListener('click', (e) => {
+        const item = e.target.closest('.search-result-item');
+        if (item) {
+            navigateTo(item.dataset.tab);
+            input.value = '';
+            resultsBox.classList.remove('open');
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#searchWrap')) resultsBox.classList.remove('open');
+    });
+
+    input.addEventListener('focus', () => {
+        if (input.value.trim()) input.dispatchEvent(new Event('input'));
+    });
+})();
 
 // ── Sidebar tab switching (one panel visible at a time per group) ──
 document.querySelectorAll('.sidebar-tab').forEach(tab => {
@@ -4354,69 +4890,115 @@ if (infographicFrame) {
 }
 
 // ── Genetica Quiz ──
-const quizFeedback = {
-    '1-b': 'Juist! Het domesticatiesyndroom beschrijft alle veranderingen die optreden wanneer wilde soorten in de buurt van mensen leven.',
-    '1-wrong': 'Onjuist. Het domesticatiesyndroom gaat over onbewuste veranderingen door leven nabij mensen, niet over bewuste kruisingen of ziektes.',
-    '2-c': 'Juist! Alleen de additieve component wordt doorgegeven aan nakomelingen en vormt de basis voor selectie.',
-    '2-wrong': 'Onjuist. Dominantie en epistasie worden niet direct doorgegeven. Milieuvariatie is geen genetische variatie.',
-    '3-b': 'Juist! h² = 0,8 betekent dat 80% van de variatie in de populatie door genetische factoren wordt verklaard.',
-    '3-wrong': 'Onjuist. h² gaat over het aandeel genetische variatie in de totale fenotypische variatie van een populatie.',
-    '4-a': 'Juist! De formule van Wright berekent de inteeltcoëfficiënt via de stamboom.',
-    '4-wrong': 'Onjuist. De andere formules berekenen selectieresultaat (R), heterosis (H%) of fenotypische waarde (P).',
-    '5-d': 'Juist! Autoploïden verdubbelen hun eigen genoom, alloploïden combineren genomen van verschillende soorten.',
-    '5-wrong': 'Onjuist. Het verschil zit in de herkomst: eigen genoom (auto) vs. verschillende soorten (allo).',
-    '6-b': 'Juist! Heterosis is het grootst bij eigenschappen met lage h², zoals vruchtbaarheid en vitaliteit.',
-    '6-wrong': 'Onjuist. Heterosis is juist het grootst bij laag-erfelijke eigenschappen (vruchtbaarheid, vitaliteit).',
-    '7-c': 'Juist! P̄ = (600+630)/2 = 615. H = (640-615)/615 × 100 ≈ 4,07%... nee, laten we opnieuw rekenen: (640-615)/615 × 100 = 4,065%. Het dichtstbijzijnde antwoord is 3,9% (afronding verschil).',
-    '7-wrong': 'Berekening: gemiddelde ouders = (600+630)/2 = 615. H(%) = (640−615)/615 × 100 ≈ 4,1%. Let op de afronding!',
-    '8-b': 'Juist! Genomic Selection gebruikt 50.000+ merkers verspreid over het hele genoom.',
-    '8-wrong': 'Onjuist. Bij Genomic Selection worden tienduizenden merkers (50.000+) over het gehele genoom gebruikt.'
-};
-
 let genScore = 0;
 const genScoreEl = document.getElementById('genScore');
 
+// Multiple choice vragen
 document.querySelectorAll('#genQuiz .quiz-opt').forEach(btn => {
     btn.addEventListener('click', () => {
         const q = btn.closest('.quiz-q');
         if (q.classList.contains('answered')) return;
         q.classList.add('answered');
-
         const correct = q.dataset.correct;
         const chosen = btn.dataset.val;
         const fb = q.querySelector('.quiz-feedback');
-
         btn.classList.add('chosen');
         if (chosen === correct) {
             btn.classList.add('correct');
             genScore++;
             fb.className = 'quiz-feedback fb-correct';
             fb.style.display = 'block';
-            fb.textContent = '✓ Goed!';
+            fb.textContent = '\u2713 Goed!';
         } else {
             btn.classList.add('wrong');
-            // Highlight correct answer
             q.querySelector('.quiz-opt[data-val="' + correct + '"]').classList.add('correct');
             fb.className = 'quiz-feedback fb-wrong';
             fb.style.display = 'block';
-            fb.textContent = '✗ Helaas, het juiste antwoord is gemarkeerd.';
+            fb.textContent = '\u2717 Helaas, het juiste antwoord is gemarkeerd.';
         }
-        // Mark all other buttons as chosen to prevent clicking
         q.querySelectorAll('.quiz-opt').forEach(b => b.classList.add('chosen'));
         if (genScoreEl) genScoreEl.textContent = genScore;
     });
 });
 
+// Berekeningsvragen (invulvelden)
+document.querySelectorAll('#genQuiz .calc-check-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const q = btn.closest('.quiz-q');
+        if (q.classList.contains('answered')) return;
+        const input = q.querySelector('.calc-input');
+        const fb = q.querySelector('.quiz-feedback');
+        const raw = input.value.trim().replace(',', '.');
+        const userVal = parseFloat(raw);
+        const answer = parseFloat(q.dataset.answer);
+        const tol = parseFloat(q.dataset.tolerance) || 0.1;
+        if (isNaN(userVal)) {
+            fb.className = 'quiz-feedback fb-wrong';
+            fb.style.display = 'block';
+            fb.textContent = 'Vul een getal in.';
+            return;
+        }
+        q.classList.add('answered');
+        btn.disabled = true;
+        input.readOnly = true;
+        if (Math.abs(userVal - answer) <= tol) {
+            input.classList.add('correct');
+            genScore++;
+            fb.className = 'quiz-feedback fb-correct';
+            fb.style.display = 'block';
+            fb.textContent = '\u2713 Goed! Antwoord: ' + answer;
+        } else {
+            input.classList.add('wrong');
+            fb.className = 'quiz-feedback fb-wrong';
+            fb.style.display = 'block';
+            fb.textContent = '\u2717 Onjuist. Het juiste antwoord is ' + answer + '.';
+            const sol = q.querySelector('.solution-body');
+            if (sol) sol.classList.add('visible');
+            const tog = q.querySelector('.solution-toggle');
+            if (tog) tog.textContent = 'Verberg uitwerking';
+        }
+        if (genScoreEl) genScoreEl.textContent = genScore;
+    });
+});
+
+// Enter-toets voor invulvelden
+document.querySelectorAll('#genQuiz .calc-input').forEach(input => {
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const btn = input.closest('.calc-input-row').querySelector('.calc-check-btn');
+            if (btn && !btn.disabled) btn.click();
+        }
+    });
+});
+
+// Uitwerking toggles
+document.querySelectorAll('#genQuiz .solution-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const body = toggle.nextElementSibling;
+        if (body) {
+            body.classList.toggle('visible');
+            toggle.textContent = body.classList.contains('visible') ? 'Verberg uitwerking' : 'Toon uitwerking';
+        }
+    });
+});
+
+// Reset alles
 document.getElementById('genReset')?.addEventListener('click', () => {
     genScore = 0;
     if (genScoreEl) genScoreEl.textContent = '0';
     document.querySelectorAll('#genQuiz .quiz-q').forEach(q => {
         q.classList.remove('answered');
-        q.querySelectorAll('.quiz-opt').forEach(b => {
-            b.classList.remove('chosen', 'correct', 'wrong');
-        });
+        q.querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('chosen', 'correct', 'wrong'));
+        const input = q.querySelector('.calc-input');
+        if (input) { input.value = ''; input.readOnly = false; input.classList.remove('correct', 'wrong'); }
+        const btn = q.querySelector('.calc-check-btn');
+        if (btn) btn.disabled = false;
         const fb = q.querySelector('.quiz-feedback');
         if (fb) { fb.style.display = 'none'; fb.className = 'quiz-feedback'; }
+        const sol = q.querySelector('.solution-body');
+        if (sol) sol.classList.remove('visible');
+        const tog = q.querySelector('.solution-toggle');
+        if (tog) tog.textContent = 'Toon uitwerking';
     });
 });
 </script>
